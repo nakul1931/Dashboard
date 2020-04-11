@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 //Important exports
 export 'package:flutter/material.dart';
 
@@ -9,3 +10,8 @@ export 'Screens/search.dart';
 export 'Screens/account.dart';
 export 'Screens/cart.dart';
 export 'Screens/wallet.dart';
+
+//Colors
+
+final mainColor = Colors.yellow[600];
+

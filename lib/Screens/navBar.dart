@@ -49,9 +49,8 @@ class _NavBarState extends State<NavBar> {
         bottomNavigationBar: FFNavigationBar(
           theme: FFNavigationBarTheme(
             barBackgroundColor: Colors.white,
-            selectedItemBorderColor: Colors.transparent,
-            // selectedItemBackgroundColor: Colors.green,
-            selectedItemIconColor: Colors.white,
+            selectedItemBackgroundColor: mainColor,
+            selectedItemIconColor: Colors.black,
             selectedItemLabelColor: Colors.black,
             showSelectedItemShadow: true,
             barHeight: 50,
@@ -66,8 +65,8 @@ class _NavBarState extends State<NavBar> {
           },
           items: [
             FFNavigationBarItem(
-              iconData: Icons.account_balance_wallet,
-              label: 'Wallet',
+              iconData: Icons.payment,
+              label: 'Payment',
             ),
             FFNavigationBarItem(
               iconData: Icons.search,
