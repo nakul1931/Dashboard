@@ -1,8 +1,11 @@
 //Important exports
 export 'package:flutter/material.dart';
 
-
+//NavBar
+export 'Screens/navBar.dart';
 //Screen exports
-export 'home2.dart';
-export 'search.dart';
-export 'account.dart';
+export 'Screens/home2.dart';
+export 'Screens/search.dart';
+export 'Screens/account.dart';
+export 'Screens/cart.dart';
+export 'Screens/wallet.dart';

@@ -21,8 +21,8 @@ class _Home2State extends State<Home2> {
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black,
-                    blurRadius: 0.5, // has the effect of softening the shadow
-                    spreadRadius: 0.5, // has the effect of extending the shadow
+                    // blurRadius: 0.5, // has the effect of softening the shadow
+                    // spreadRadius: 0.5, // has the effect of extending the shadow
                   )
                 ],
               ),

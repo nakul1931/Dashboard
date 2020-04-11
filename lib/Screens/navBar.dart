@@ -1,32 +1,31 @@
 import 'package:Off_Dash/allFiles.dart';
 import 'package:ff_navigation_bar/ff_navigation_bar.dart';
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
+class NavBar extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _NavBarState createState() => _NavBarState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _NavBarState extends State<NavBar> {
   int selectedIndex = 2;
   Widget _showPage;
 
   final Account _account = Account();
   final Search _search = Search();
   final Home2 _home2 = Home2();
+  final Cart _cart = Cart();
+  final Wallet _wallet = Wallet();
 
   Widget _pageChooser(int page) {
     switch (page) {
       case 0:
-        return _search;
+        return _wallet;
       case 1:
         return _search;
       case 2:
         return _home2;
       case 3:
-        return _account;
+        return _cart;
       case 4:
         return _account;
 
