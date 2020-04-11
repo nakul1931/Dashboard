@@ -22,21 +22,20 @@ class _SearchState extends State<Search> {
                     borderRadius: BorderRadius.circular(30.0),
                   ),
                   child: Container(
-                      padding: EdgeInsets.fromLTRB(20.0, 10.0, 10.0, 10.0),
-                      width: 40.0,
+                      padding: EdgeInsets.only(left: 20.0),
                       child: TextFormField(
                         keyboardType: TextInputType.text,
+                        textAlignVertical: TextAlignVertical.bottom,
                         cursorColor: mainColor,
-                        // cursorRadius: Radius.circular(10.0),s
                         decoration: const InputDecoration(
                           alignLabelWithHint: true,
-
+                          hintMaxLines: 1,
+                          hintText: "Search",
                           icon: Icon(
                             Icons.search,
+                            size: 30.0,
                             color: Colors.grey,
                           ),
-                          // hintText: 'Search',
-                          // hintText: 'What do people call you?',
                           border: InputBorder.none,
                         ),
                       ))),

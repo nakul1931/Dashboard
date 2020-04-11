@@ -50,7 +50,7 @@ class _NavBarState extends State<NavBar> {
           theme: FFNavigationBarTheme(
             barBackgroundColor: Colors.white,
             selectedItemBackgroundColor: mainColor,
-            selectedItemIconColor: Colors.black,
+            selectedItemIconColor: Colors.white,
             selectedItemLabelColor: Colors.black,
             showSelectedItemShadow: true,
             barHeight: 50,
