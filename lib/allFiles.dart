@@ -10,8 +10,9 @@ export 'Screens/search.dart';
 export 'Screens/account.dart';
 export 'Screens/cart.dart';
 export 'Screens/wallet.dart';
+export 'Screens/deliveryScreen.dart';
 
 //Colors
 
 final mainColor = Colors.yellow[600];
-
+final dividerColor = Colors.black;

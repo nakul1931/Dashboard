@@ -15,17 +15,17 @@ class _AccountState extends State<Account> {
           SizedBox(
             height: 20.0,
           ),
-          _options(),
-          _options(),
-          _options(),
-          _options(),
-          _options()
+          _options(title: "Order History", image: "home.jpg"),
+          _options(title: "Saved Address", image: "home.jpg"),
+          _options(title: "Refer a friend", image: "refer.png"),
+          _options(title: "Refer", image: "home.jpg"),
+          _options(title: "Support", image: "support.png")
         ]),
       ),
     );
   }
 
-  Widget _options() {
+  Widget _options({String title, Function ontap, String image}) {
     return Container(
       width: MediaQuery.of(context).size.width - 20.0,
       height: 80.0,
@@ -42,12 +42,14 @@ class _AccountState extends State<Account> {
                       child: Row(children: <Widget>[
                         CircleAvatar(
                           radius: 25.0,
-                          backgroundColor: mainColor,
+                          backgroundImage: AssetImage(
+                            "assets/$image",
+                          ),
                         ),
                         SizedBox(
                           width: 15.0,
                         ),
-                        Text("Saved Address"),
+                        Text(title, style: TextStyle(fontSize: 18.0)),
                       ]),
                     ),
                     InkWell(
@@ -92,7 +94,6 @@ class _AccountState extends State<Account> {
                 SizedBox(
                   height: 10.0,
                 ),
-                // Text("My Account")
               ],
             ),
             SizedBox(width: 10.0),
