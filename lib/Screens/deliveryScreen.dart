@@ -16,7 +16,17 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
         body: Column(
           children: <Widget>[
             _map(),
-            _deliveryDetail(),
+            _detail(
+              title: "Delivery Detail",
+              order: false,
+              height: MediaQuery.of(context).size.height * 0.2,
+            ),
+            Expanded(
+              child: _detail(
+                title: "Order Detail",
+                order: true,
+              ),
+            )
           ],
         ),
       ),
@@ -32,45 +42,100 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
     );
   }
 
-  Widget _deliveryDetail() {
-    Widget _button({String title, IconData icon}) {
-      return InkWell(
-        // splashColor: mainColor,
-        // highlightColor: mainColor,
-        // focusColor: mainColor,
-        borderRadius: BorderRadius.circular(20.0),
-        onTap: () => print(title),
-        child: Container(
-          padding: EdgeInsets.fromLTRB(15.0, 0.0, 0.0, 0.0),
-          width: 125.0,
-          height: 40.0,
-          decoration: BoxDecoration(
-              color: Colors.grey[200],
-              borderRadius: BorderRadius.circular(30.0)),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Icon(icon),
-              SizedBox(
-                width: 20.0,
-              ),
-              Text(title)
-            ],
+  Widget _detail({String title, bool order, double height}) {
+    Widget _deliveryDetail() {
+      Widget _button({String title, IconData icon}) {
+        return InkWell(
+          // splashColor: mainColor,
+          // highlightColor: mainColor,
+          // focusColor: mainColor,
+          borderRadius: BorderRadius.circular(20.0),
+          onTap: () => print(title),
+          child: Container(
+            padding: EdgeInsets.fromLTRB(15.0, 0.0, 0.0, 0.0),
+            width: 125.0,
+            height: 40.0,
+            decoration: BoxDecoration(
+                color: Colors.grey[200],
+                borderRadius: BorderRadius.circular(30.0)),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Icon(icon),
+                SizedBox(
+                  width: 20.0,
+                ),
+                Text(title)
+              ],
+            ),
           ),
-        ),
+        );
+      }
+
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Container(
+              width: 200.0,
+              child: Row(
+                children: <Widget>[
+                  CircleAvatar(
+                    backgroundColor: mainColor,
+                    radius: 30.0,
+                  ),
+                  SizedBox(width: 10.0),
+                  Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          "Name",
+                          style: _heading,
+                        ),
+                        SizedBox(height: 5.0),
+                        Row(
+                          children: <Widget>[
+                            Icon(Icons.star, size: 15.0),
+                            SizedBox(width: 5.0),
+                            Text("4.5")
+                          ],
+                        )
+                      ])
+                ],
+              )),
+          Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                _button(title: "Chat", icon: Icons.chat),
+                SizedBox(height: 10.0),
+                _button(title: "Call", icon: Icons.phone)
+              ])
+        ],
       );
     }
 
+    Widget _orderDetail() {
+      return Container(
+          child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Text("Item"),
+          Container(
+            child: Text("Price"),
+          )
+        ],
+      ));
+    }
+
     return Container(
-      height: MediaQuery.of(context).size.height * 0.20,
+      height: height,
       padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "Delivery Detail",
+            title,
             style: _heading,
           ),
           Divider(
@@ -80,45 +145,7 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
           SizedBox(
             height: 2.0,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Container(
-                  width: 200.0,
-                  child: Row(
-                    children: <Widget>[
-                      CircleAvatar(
-                        backgroundColor: mainColor,
-                        radius: 30.0,
-                      ),
-                      SizedBox(width: 10.0),
-                      Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              "Name",
-                              style: _heading,
-                            ),
-                            SizedBox(height: 5.0),
-                            Row(
-                              children: <Widget>[
-                                Icon(Icons.star, size: 15.0),
-                                SizedBox(width: 5.0),
-                                Text("4.5")
-                              ],
-                            )
-                          ])
-                    ],
-                  )),
-              Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    _button(title: "Chat", icon: Icons.chat),
-                    SizedBox(height: 10.0),
-                    _button(title: "Call", icon: Icons.phone)
-                  ])
-            ],
-          )
+          order == false ? _deliveryDetail() : _orderDetail(),
         ],
       ),
     );

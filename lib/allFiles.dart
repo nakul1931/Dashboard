@@ -11,6 +11,7 @@ export 'Screens/account.dart';
 export 'Screens/cart.dart';
 export 'Screens/wallet.dart';
 export 'Screens/deliveryScreen.dart';
+export 'Screens/items.dart';
 
 //Colors
 
